@@ -1,19 +1,53 @@
 .landingPage {
     background-image: url("../img/sati_landing_photo.png");
     background-color: #000000;
-    height: 100vh;
+    height: 920px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 
     .box {
-        color: #FFFFFF;
-        margin: auto;
-        
+        color: #EEE1CF;
+        top: 620px;
+        left: 25%;
+        position: absolute;
         border-radius: 8px;
         background-color: rgba(27, 20, 17, 0.8);
         width: 776px;
         height: 256px;
+        text-align: center;
+
+        p:nth-child(1){
+            font-size: 30px;
+            margin: 32px auto 0;
+            font-weight: bold;
+            width: 672px;
+            height: 69px;
+        }
+
+        p:nth-child(2){
+            font-size: 24px;
+            width: 552px;
+            height: 51px;
+            margin: 24px auto;
+        }
+
+        div {
+            margin: auto;
+            width: 475px;
+            display: flex;
+            justify-content: space-between;
+
+            button {
+                background-color: #FFB300;
+                color: #FFFFFF;
+                font-size: 14px;
+                border-radius: 4px;
+                width: 208px;
+                height: 36px;
+                border: 0;
+            }
+        }
     }
 
 }
