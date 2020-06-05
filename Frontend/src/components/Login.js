@@ -1,13 +1,12 @@
-import React from 'react'
-import Header from "./Header"
+import React from "react";
+import Header from "./Header";
 
 const Login = () => {
-
-    return(
-        <>
-            <Header />
-        </>
-    )
-}
+  return (
+    <>
+      <Header />
+    </>
+  );
+};
 
 export default Login;
