@@ -4,8 +4,8 @@ import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const Register = () => {
   const [credentials, setCredentials] = useState({
-    password: "",
-    email: ""
+    email: "",
+    password: ""
   });
 
   const handleChange = event => {
@@ -32,34 +32,39 @@ const Register = () => {
   return (
     <>
       <Header />
-      <form>
-        <input
-          className=""
-          type="text"
-          onChange={handleChange}
-          name="email"
-          value={credentials.email}
-          placeholder="EMAIL"
-        />
-
-        <input
-          className=""
-          type="password"
-          onChange={handleChange}
-          name="password"
-          value={credentials.password}
-          placeholder="PASSWORD"
-        />
-
-        <input
-          className=""
-          type="password"
-          onChange={handleChange}
-          name="password"
-          value={credentials.password}
-          placeholder="RE-ENTER PASSWORD"
-        />
-      </form>
+      <div className="register">
+        <h2>Sign up for account</h2>
+        <form>
+          <input
+            className="email"
+            type="text"
+            onChange={handleChange}
+            name="email"
+            value={credentials.email}
+            placeholder="EMAIL"
+          />
+  
+          <input
+            className="pass"
+            type="password"
+            onChange={handleChange}
+            name="password"
+            value={credentials.password}
+            placeholder="PASSWORD"
+          />
+  
+          <input
+            className="pass"
+            type="password"
+            onChange={handleChange}
+            name="password"
+            value={credentials.password}
+            placeholder="RE-ENTER PASSWORD"
+          />
+  
+          <button>REGISTER</button>
+        </form>
+      </div>
     </>
   );
 };
