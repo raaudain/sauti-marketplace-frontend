@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import Header from "./Header";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
+import { connect } from "react-redux";
+import { signIn } from "../store/actions/authActions";
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
@@ -18,12 +19,6 @@ const Login = () => {
   const handleSubmit = event => {
     event.preventDefault();
 
-    axiosWithAuth()
-      .post("/auth/login", credentials)
-      .then(res => {
-        localStorage.setItem("token", res.data.payload);
-      })
-      .catch(err => console.log(err.response));
   }
 
   return (

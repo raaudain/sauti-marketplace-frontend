@@ -1,32 +1,29 @@
 import React, { useState } from "react";
 import Header from "./Header";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
+import { connect } from "react-redux";
+import { createAccount } from "../store/actions/createActions";
 
-const Register = () => {
+const Register = props => {
   const [credentials, setCredentials] = useState({
     email: "",
-    password: ""
+    password: "",
+    cPassword: ""
   });
+
+  
 
   const handleChange = event => {
     event.preventDefault();
-    setCredentials({ 
-      ...credentials, 
-      [event.target.name]: event.target.value 
+    setCredentials({
+      ...credentials,
+      [event.target.name]: event.target.value,
     });
   };
 
   const handleSubmit = event => {
     event.preventDefault();
-    let uname = credentials.username;
-
-    axiosWithAuth()
-      .post("/auth/register", credentials)
-      .then((res) => {
-        axiosWithAuth()
-          .get("/users")
-          .then((res) => {});
-      });
+    console.log(credentials)
+    props.createAccount(credentials);
   };
 
   return (
@@ -34,7 +31,7 @@ const Register = () => {
       <Header />
       <div className="register">
         <h2>Sign up for account</h2>
-        <form>
+        <form onSubmit={handleSubmit}>
           <input
             className="email"
             type="text"
@@ -43,7 +40,7 @@ const Register = () => {
             value={credentials.email}
             placeholder="EMAIL"
           />
-  
+
           <input
             className="pass"
             type="password"
@@ -52,16 +49,16 @@ const Register = () => {
             value={credentials.password}
             placeholder="PASSWORD"
           />
-  
+
           <input
             className="pass"
             type="password"
             onChange={handleChange}
-            name="password"
-            value={credentials.password}
+            name="cPassword"
+            value={credentials.cPassword}
             placeholder="RE-ENTER PASSWORD"
           />
-  
+
           <button>REGISTER</button>
         </form>
       </div>
@@ -69,4 +66,8 @@ const Register = () => {
   );
 };
 
-export default Register;
+const mapStateToProps = state => {
+  return {};
+};
+
+export default connect(mapStateToProps, { createAccount })(Register);
