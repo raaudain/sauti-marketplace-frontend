@@ -21,8 +21,9 @@ const Login = () => {
     axiosWithAuth()
       .post("/auth/login", credentials)
       .then(res => {
-
+        localStorage.setItem("token", res.data.payload);
       })
+      .catch(err => console.log(err.response));
   }
 
   return (
