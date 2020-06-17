@@ -5,9 +5,9 @@ import { createAccount } from "../store/actions/createActions";
 
 const Register = props => {
   const [credentials, setCredentials] = useState({
+    username: "",
     email: "",
-    password: "",
-    cPassword: ""
+    password: ""
   });
 
   
@@ -32,6 +32,15 @@ const Register = props => {
       <div className="register">
         <h2>Sign up for account</h2>
         <form onSubmit={handleSubmit}>
+        <input
+            className="username"
+            type="text"
+            onChange={handleChange}
+            name="username"
+            value={credentials.username}
+            placeholder="USERNAME"
+          />
+
           <input
             className="email"
             type="text"
