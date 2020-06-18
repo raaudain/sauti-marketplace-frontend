@@ -5,7 +5,7 @@ import { signIn } from "../store/actions/authActions";
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
-    email: "",
+    username: "",
     password: ""
   });
 
@@ -29,11 +29,11 @@ const Login = () => {
       <h2>Sign into Sauti</h2>
         <form onSubmit={handleSubmit}>
           <input 
-            className="email"
+            className="username"
             type="text"
-            name="email"
-            placeholder="Email"
-            value={credentials.email}
+            name="username"
+            placeholder="USERNAME"
+            value={credentials.username}
             onChange={handleChange}
           />
   
@@ -41,7 +41,7 @@ const Login = () => {
             className="pass"
             type="password" 
             name="password"
-            placeholder="Password"
+            placeholder="PASSWORD"
             value={credentials.password}
             onChange={handleChange}
           />
