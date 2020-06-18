@@ -1,4 +1,4 @@
-import { axiosWithAuth } from "../../utils/axiosWithAuth";
+import axiosWithAuth from "../../utils/axiosWithAuth";
 import { types } from "./index";
 
 export const logIn = credentials => dispatch => {
@@ -16,3 +16,4 @@ export const logIn = credentials => dispatch => {
             console.log(err.response)
         })
 }
+

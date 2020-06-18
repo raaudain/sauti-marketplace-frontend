@@ -1,4 +1,4 @@
-import { axiosWithAuth } from "../../utils/axiosWithAuth";
+import axiosWithAuth from "../../utils/axiosWithAuth";
 import { types } from "./index";
 
 export const createAccount = credentials => dispatch => {
@@ -17,3 +17,4 @@ export const createAccount = credentials => dispatch => {
       console.log(err.response);
     });
 };
+

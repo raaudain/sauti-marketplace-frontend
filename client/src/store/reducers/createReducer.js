@@ -11,6 +11,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case types.CREATE_ACCOUNT_START:
+      console.log("start")
       return {
         ...state,
         isLoading: true,
@@ -20,6 +21,7 @@ export default (state = initialState, action) => {
         user: {}
       };
     case types.CREATE_ACCOUNT_SUCCESS:
+      console.log("success")
       return {
         ...state,
         isLoading: false,

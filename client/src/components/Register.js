@@ -3,6 +3,7 @@ import Header from "./Header";
 import { connect } from "react-redux";
 import { createAccount } from "../store/actions/createActions";
 
+
 const Register = props => {
   const [credentials, setCredentials] = useState({
     username: "",
@@ -22,7 +23,6 @@ const Register = props => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    console.log(credentials)
     props.createAccount(credentials);
   };
 
@@ -64,7 +64,7 @@ const Register = props => {
             type="password"
             onChange={handleChange}
             name="cPassword"
-            value={credentials.cPassword}
+            //value={}
             placeholder="RE-ENTER PASSWORD"
           />
 
