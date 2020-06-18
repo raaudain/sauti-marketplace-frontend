@@ -8,21 +8,21 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    // case types.CREATE_ACCOUNT_START:
-    //   return {
-    //     ...state,
-    //     isLoading: true,
-    //   };
-    // case types.CREATE_ACCOUNT_SUCCESS:
-    //   return {
-    //     ...state,
-    //     isSuccess: true,
-    //   };
-    // case types.CREATE_ACCOUNT_FAILURE:
-    //   return {
-    //     ...state,
-    //     error: action.payload,
-    //   };
+    case types.LOGIN_START:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case types.LOGIN_SUCCESS:
+      return {
+        ...state,
+        isSuccess: true,
+      };
+    case types.LOGIN_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+      };
     default:
       return state;
   }
