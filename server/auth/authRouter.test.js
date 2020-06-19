@@ -12,8 +12,8 @@ describe("POST /register", function () {
         email: `${Math.random()}@test.com`,
         password: "pass",
       })
-      .then((res) => {
-        expectCt(res.status).toBe(201);
+      .then(res => {
+        expect(res.status).toBe(201);
       });
   });
 
@@ -25,7 +25,7 @@ describe("POST /register", function () {
         email: "",
         password: "test",
       })
-      .then((res) => {
+      .then(res => {
         expect(res.status).toBe(400);
       });
   });
@@ -49,7 +49,7 @@ describe("POST /login", function () {
             username: "testing",
             password: "pass",
           })
-          .then((res) => {
+          .then(res => {
             expect(res.status).toBe(200);
           });
       });
@@ -62,7 +62,7 @@ describe("POST /login", function () {
         username: "test",
         password: "pass",
       })
-      .then((res) => {
+      .then(res => {
         expect(res.status).toBe(401);
       });
   });
