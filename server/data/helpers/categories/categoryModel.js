@@ -1,10 +1,12 @@
 module.exports = {
-  getCategories,
-  getCategory,
-  getCategoryLocation,
-  getCategoryLocationAverage,
-  getTest
+    getCategories,
+    getCategory,
+    getCategoryLocation,
+    getCategoryLocationAverage,
+    getTest
 };
+
+const db = require("../../dbConfig");
 
 function getCategories() {
   return db("category").select("id", "category", "imgUrl");
@@ -36,4 +38,3 @@ function getTest(id) {
     .where("category.id", id);
 }
 
-const db = require("../../dbConfig");
