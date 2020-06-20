@@ -3,8 +3,8 @@ const request = require("supertest");
 const server = require("../api/server");
 
 // Tests registration
-describe("POST /register", function () {
-  test("should return a 201", function () {
+describe("POST /register", function() {
+  test("should return a 201", function() {
     return request(server)
       .post("/api/auth/register")
       .send({
@@ -17,7 +17,7 @@ describe("POST /register", function () {
       });
   });
 
-  test("should return a 400 Bad Request", function () {
+  test("should return a 400 Bad Request", function() {
     return request(server)
       .post("/api/auth/register")
       .send({
@@ -32,8 +32,8 @@ describe("POST /register", function () {
 });
 
 // Tests login
-describe("POST /login", function () {
-  test("should return a 200 OK", function () {
+describe("POST /login", function() {
+  test("should return a 200 OK", function() {
     // Registers user then tests login
     return request(server)
       .post("/api/auth/register")

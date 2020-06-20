@@ -9,11 +9,15 @@ module.exports = {
 const db = require("../../dbConfig");
 
 function getCategories() {
-  return db("category").select("id", "category", "imgUrl");
+  return db("category")
+    .select("id", "category", "imgUrl");
 }
 
 function getCategory(id) {
-  return db("category").select("category", "imgURL").where({ id }).first();
+  return db("category")
+    .select("category", "imgURL")
+    .where({ id })
+    .first();
 }
 
 function getCategoryLocation(id) {

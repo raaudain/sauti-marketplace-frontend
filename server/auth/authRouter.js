@@ -13,32 +13,36 @@ router.post("/register", validate.validateRegister, (req, res) => {
   user.password = hash;
 
   Users.addUser(user)
-    .then((add) => {
+    .then(add => {
       res.status(201).json({ message: "Account created" });
     })
-    .catch((err) => {
+    .catch(err => {
       res.status(500).json({ message: `${err}` });
     });
 });
 
-//Login
+// Login users
 router.post("/login", validate.validateLogin, (req, res) => {
   const { username, password } = req.body;
 
   Users.findUser({ username })
     .first()
-    .then((user) => {
+    .then(user => {
       if (user && bcrypt.compareSync(password, user, password)) {
         const token = signedToken(user);
 
         res
           .status(200)
-          .json({ id: user.id, token, message: `${user.username} logged in` });
+          .json({ 
+            id: user.id, 
+            token, 
+            message: `${user.username} logged in` 
+          });
       } else {
         res.status(401).json("Invalid credentials");
       }
     })
-    .catch((err) => {
+    .catch(err => {
       res.status(500).json({ message: `${err}` });
     });
 });
