@@ -7,7 +7,7 @@ module.exports = {
   removeItem,
   getItemsCategory,
   getItemsCountry,
-  getAverageForItemCountry,
+  getAverageForItemCountry
 };
 
 const db = require("../../dbConfig");
@@ -53,7 +53,9 @@ function addItem(item) {
     .then(ids => {
       const [id] = ids;
 
-      return db("users").where({ id }).first();
+      return db("users")
+        .where({ id })
+        .first();
     });
 }
 
