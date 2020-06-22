@@ -76,9 +76,11 @@ router.put("/:id/items/:id", authenticate, (req, res) => {
       return Items
         .getItem(id)
         .then(() => {
-          return Items.updateItem(id, change).then(() => {
-            res.status(200).json({ message: "Item data updated" });
-          });
+          return Items
+            .updateItem(id, change)
+            .then(() => {
+              res.status(200).json({ message: "Item data updated" });
+            });
         });
     })
     .catch(err => {
