@@ -31,7 +31,7 @@ function getCategoryLocationAverage(id) {
   return db("category")
     .select("*")
     .join("location", "category.id", "location.category_id")
-    .join("items", "location.id", "items.country_id")
+    .join("items", "location.id", "items.category_id")
     .where("location.category_id", id);
 }
 

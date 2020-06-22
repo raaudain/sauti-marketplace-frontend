@@ -29,6 +29,6 @@ function getAverage(id) {
       "i.item_price"
     )
     .join("category as cat", "loc.id", "cat.location_id")
-    .join("items as i", "cat.id", "i.c_id")
+    .join("items as i", "cat.id", "i.category_id")
     .where("cat.id", id);
 }

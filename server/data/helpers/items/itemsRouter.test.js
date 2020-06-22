@@ -1,5 +1,4 @@
 const request = require("supertest");
-
 const server = require("../../../api/server");
 
 describe("GET users/:id/items", function() {

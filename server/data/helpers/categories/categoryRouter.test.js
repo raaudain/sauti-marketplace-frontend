@@ -1,7 +1,5 @@
 const request = require("supertest");
-
 const server = require("../../../api/server");
-const { get } = require("../../../auth/authRouter");
 
 describe("GET /category", function() {
   test("should return 200 OK", function() {
