@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import Header from "./Header";
 import { connect } from "react-redux";
-import { signIn } from "../store/actions/authActions";
+import { logIn } from "../store/actions/authActions";
 
-const Login = () => {
+const Login = props => {
   const [credentials, setCredentials] = useState({
     username: "",
     password: ""
@@ -18,7 +18,9 @@ const Login = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-
+    props.logIn(credentials);
+    props.history("/");
+    
   }
 
   return (
@@ -54,4 +56,8 @@ const Login = () => {
   );
 };
 
-export default Login;
+const mapStateToProps = state => {
+  return {};
+};
+
+export default connect(mapStateToProps, {logIn})(Login);

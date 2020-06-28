@@ -5,14 +5,14 @@ export const createAccount = credentials => dispatch => {
   dispatch({ type: types.CREATE_ACCOUNT_START });
   return axiosWithAuth()
     .post("/auth/register", credentials)
-    .then((res) => {
+    .then(res => {
       console.log(res);
       dispatch({
         type: types.CREATE_ACCOUNT_SUCCESS,
         payload: { message: "Account created" },
       });
     })
-    .catch((err) => {
+    .catch(err => {
       dispatch({ type: types.CREATE_ACCOUNT_FAILURE, payload: err });
       console.log(err.response);
     });

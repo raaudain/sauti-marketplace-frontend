@@ -24,6 +24,7 @@ const Register = props => {
   const handleSubmit = event => {
     event.preventDefault();
     props.createAccount(credentials);
+    props.history("/login");
   };
 
   return (
