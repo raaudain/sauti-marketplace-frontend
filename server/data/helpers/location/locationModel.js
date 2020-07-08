@@ -4,7 +4,7 @@ module.exports = {
   getAverage,
 };
 
-const db = requre("../../dbConfig.js");
+const db = require("../../dbConfig.js");
 
 function getCountries() {
   return db("location")

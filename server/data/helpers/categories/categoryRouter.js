@@ -107,9 +107,9 @@ router.get("/location/:id/avg", (req, res) => {
           avg.forEach(e => price.push(e.item_price));
 
           const total = price.reduce((acc, val) => acc + val, 0);
-          const avg = total / price.length;
+          const average = total / price.length;
 
-          res.status(200).json(avg);
+          res.status(200).json(average);
         });
     })
     .catch(err => {

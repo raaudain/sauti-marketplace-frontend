@@ -21,7 +21,7 @@ router.get("/:id/items", validate.validateUserId, (req, res) => {
 });
 
 // Render specific item for specific user
-router.get("/:id/items/:id", (res, res) => {
+router.get("/:id/items/:id", (req, res) => {
   const { id } = req.params;
 
   Users

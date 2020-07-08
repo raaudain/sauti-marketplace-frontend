@@ -9,6 +9,10 @@ module.exports = {
 
 const db = require("../../dbConfig");
 
+function getUsers() {
+  return db("users")
+}
+
 function getUser(id) {
   return db("users")
     .select("id", "username", "profile_img")
