@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import Header from "./Header";
 import { connect } from "react-redux";
 import { createAccount } from "../store/actions/createActions";
@@ -11,7 +12,7 @@ const Register = props => {
     password: ""
   });
 
-  
+  const history = useHistory();
 
   const handleChange = event => {
     event.preventDefault();
@@ -24,7 +25,7 @@ const Register = props => {
   const handleSubmit = event => {
     event.preventDefault();
     props.createAccount(credentials);
-    props.history("/login");
+    history.push("/login");
   };
 
   return (
