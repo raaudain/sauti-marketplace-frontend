@@ -39,6 +39,7 @@ const Login = props => {
             placeholder="USERNAME"
             value={credentials.username}
             onChange={handleChange}
+            required
           />
   
           <input
@@ -48,6 +49,7 @@ const Login = props => {
             placeholder="PASSWORD"
             value={credentials.password}
             onChange={handleChange}
+            required
           />
 
           <button>Sign In</button>
