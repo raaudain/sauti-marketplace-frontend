@@ -13,7 +13,7 @@ router.get("/", (req, res) => {
     })
     .catch(err => {
       console.log(err);
-      res.status(500).json(`${err}`);
+      res.status(500).json({ message: `${err}` });
     });
 });
 
@@ -28,7 +28,7 @@ router.get("/:id", validate.validateUserId, (req, res) => {
     })
     .catch(err => {
       console.log(err);
-      res.status(500).json(`${err}`);
+      res.status(500).json({ message:`${err}` });
     });
 });
 
