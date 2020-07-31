@@ -6,7 +6,6 @@ export const logIn = credentials => dispatch => {
     return axiosWithAuth()
         .post("/auth/login", credentials)
         .then(res => {
-            console.log(res)
             dispatch({type: types.LOGIN_SUCCESS,
             payload: res.data})
         })

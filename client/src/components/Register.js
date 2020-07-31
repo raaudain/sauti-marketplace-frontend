@@ -23,69 +23,68 @@ const Register = props => {
   };
 
   const handleSubmit = event => {
-    // const password = document.getElementById("pass");
-    // const cPassword = document.getElementById("cpass");
-    // const username = document.getElementById("username");
-    // const email = document.getElementById("email");
+    const password = document.getElementById("pass");
+    const cPassword = document.getElementById("cpass");
+    const username = document.getElementById("username");
+    const email = document.getElementById("email");
 
-    // const nameError = document.getElementById("nameError");
-    // const emailError = document.getElementById("emailError");
-    // const passError = document.getElementById("passError");
-    // const cpassError = document.getElementById("cpassError");
+    const nameError = document.getElementById("nameError");
+    const emailError = document.getElementById("emailError");
+    const passError = document.getElementById("passError");
+    const cpassError = document.getElementById("cpassError");
 
     let errors = 0;
 
-    // // For username validation
-    // if (username.value.length < 4) {
-    //   nameError.innerHTML = "Username must be at least 6 characters"
-    //   errors++;
-    // }
+    // For username validation
+    if (username.value.length < 4) {
+      nameError.innerHTML = "Username must be at least 6 characters";
+      errors++;
+    }
 
-    // if (username.value.length > 20) {
-    //   nameError.innerHTML = "Username cannot be over 20 characters"
-    //   errors++;
-    // }
+    if (username.value.length > 20) {
+      nameError.innerHTML = "Username cannot be over 20 characters";
+      errors++;
+    }
 
-    // if (username.value.match(/[#/\/\\]/)) {
-    //   nameError.innerHTML = "Username must not contain hashtags, backslashes, or forward slashes"
-    //   errors++;
-    // }
+    if (username.value.match(/[#/\/\\]/)) {
+      nameError.innerHTML = "Username must not contain hashtags, backslashes, or forward slashes";
+      errors++;
+    }
 
-    // // For email validation
-    // if (!email.value.includes("@") || email.value.length === 0 || email.value === null) {
-    //   emailError.innerHTML = "Please enter valid email address"
-    //   errors++;
-    // }
+    // For email validation
+    if (!email.value.includes("@") || email.value.length === 0 || email.value === null) {
+      emailError.innerHTML = "Please enter valid email address";
+      errors++;
+    }
 
-    // // For password validation
-    // if (password.value.length < 8) {
-    //   passError.innerHTML = "Password must be atleast 8 characters"
-    //   errors++;
-    // }
+    // For password validation
+    if (password.value.length < 8) {
+      passError.innerHTML = "Password must be atleast 8 characters";
+      errors++;
+    }
 
-    // if (password.value.length > 25) {
-    //   passError.innerHTML = "Password cannot be over 25 characters"
-    //   errors++;
-    // }
+    if (password.value.length > 25) {
+      passError.innerHTML = "Password cannot be over 25 characters";
+      errors++;
+    }
 
-    // if (!password.value.match(/[A-Z]/) || !password.value.match(/[a-z]/) || !password.value.match(/[0-9]/) || !password.value.match(/[!*&^%$@]/)) {
-    //   passError.innerHTML = "Password must have at least one usercase letter, one lowercase letter, one number, and one special character (!, *, &, ^, %, $, @)"
-    //   errors++;
-    // }
+    if (!password.value.match(/[A-Z]/) || !password.value.match(/[a-z]/) || !password.value.match(/[0-9]/) || !password.value.match(/[!*&^%$@]/)) {
+      passError.innerHTML = "Password must have at least one usercase letter, one lowercase letter, one number, and one special character (!, *, &, ^, %, $, @)";
+      errors++;
+    }
 
-    // // For re-enter password validation
-    // if (password.value !== cPassword.value) {
-    //   cpassError.innerHTML = "Passwords must match"
-    //   errors++;
-    // }
+    // For re-enter password validation
+    if (password.value !== cPassword.value) {
+      cpassError.innerHTML = "Passwords must match";
+      errors++;
+    }
 
     if (errors > 0) {
       event.preventDefault();
     }
     else {
-      event.preventDefault();
       props.createAccount(credentials);
-      //history.push("/login");
+      history.push("/login");
     }
   };
 

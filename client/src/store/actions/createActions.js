@@ -11,7 +11,6 @@ export const createAccount = credentials => dispatch => {
         type: types.CREATE_ACCOUNT_SUCCESS,
         payload: { message: "Account created" },
       });
-      console.log("test", res);
     })
     .catch(err => {
       dispatch({ 
