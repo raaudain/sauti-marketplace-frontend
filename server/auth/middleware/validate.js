@@ -1,9 +1,10 @@
 function validateRegister(req, res, next) {
   const body = req.body;
 
-  if (body && (!body.email || !body.password)) {
+  if (body && (!body.username || !body.email || !body.password)) {
     res.status(400).json({ message: "Missing required field" });
-  } else {
+  } 
+  else {
     next();
   }
 }
@@ -11,9 +12,10 @@ function validateRegister(req, res, next) {
 function validateLogin(req, res, next) {
   const body = req.body;
 
-  if (body && (!body.email || !body.password)) {
+  if (body && (!body.username || !body.password)) {
     res.status(400).json({ message: "Missing required field" });
-  } else {
+  } 
+  else {
     next();
   }
 }

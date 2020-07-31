@@ -10,7 +10,7 @@ exports.up = function(knex) {
 
         table.string("password", 128).notNullable();
 
-        table.string("email", 128).notNullable().unique();
+        table.string("email", 128).notNullable();
 
         table.string("last_name", 128);
 

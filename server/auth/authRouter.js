@@ -9,11 +9,12 @@ const validate = require("./middleware/validate");
 // Register new users
 router.post("/register", validate.validateRegister, (req, res) => {
   const user = req.body;
-  const hash = bcrypt.hash(user.password, 10);
+  const hash = bcrypt.hashSync(user.password, 10);
   user.password = hash;
 
-  Users.addUser(user)
-    .then(add => {
+  Users
+    .addUser(user)
+    .then(() => {
       res.status(201).json({ message: "Account created" });
     })
     .catch(err => {
@@ -25,10 +26,11 @@ router.post("/register", validate.validateRegister, (req, res) => {
 router.post("/login", validate.validateLogin, (req, res) => {
   const { username, password } = req.body;
 
-  Users.findUser({ username })
+  Users
+    .findUser({ username })
     .first()
     .then(user => {
-      if (user && bcrypt.compareSync(password, user, password)) {
+      if (user && bcrypt.compareSync(password, user.password)) {
         const token = signedToken(user);
 
         res
@@ -38,7 +40,8 @@ router.post("/login", validate.validateLogin, (req, res) => {
             token, 
             message: `${user.username} logged in` 
           });
-      } else {
+      } 
+      else {
         res.status(401).json("Invalid credentials");
       }
     })
