@@ -20,7 +20,6 @@ export default (state = initialState, action) => {
         user: {}
       };
     case types.CREATE_ACCOUNT_SUCCESS:
-      console.log("success")
       return {
         ...state,
         isLoading: false,

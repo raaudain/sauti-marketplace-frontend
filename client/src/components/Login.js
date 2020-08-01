@@ -22,7 +22,7 @@ const Login = props => {
   const handleSubmit = event => {
     event.preventDefault();
     props.logIn(credentials);
-    history.push("/");
+    history.push("/welcome");
   }
 
   return (
@@ -32,25 +32,27 @@ const Login = props => {
       <div className="signIn">
       <h2>Sign into Sauti</h2>
         <form onSubmit={handleSubmit}>
-          <input 
-            className="username"
-            type="text"
-            name="username"
-            placeholder="USERNAME"
-            value={credentials.username}
-            onChange={handleChange}
-            required
-          />
-  
-          <input
-            className="pass"
-            type="password" 
-            name="password"
-            placeholder="PASSWORD"
-            value={credentials.password}
-            onChange={handleChange}
-            required
-          />
+          <div>
+            <input 
+              className="username"
+              type="text"
+              name="username"
+              placeholder="USERNAME"
+              value={credentials.username}
+              onChange={handleChange}
+              required
+            />
+    
+            <input
+              className="pass"
+              type="password" 
+              name="password"
+              placeholder="PASSWORD"
+              value={credentials.password}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
           <button>Sign In</button>
         </form>

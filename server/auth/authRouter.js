@@ -54,13 +54,13 @@ router.post("/login", validate.validateLogin, (req, res) => {
 function signedToken(user) {
   const payload = {
     subject: user.id,
-    username: user.username,
+    username: user.username
   };
 
   const secret = process.env.JWT_SECRET || "stay secret";
 
   const options = {
-    expiresIn: "1h",
+    expiresIn: "1h"
   };
 
   return jwt.sign(payload, secret, options);

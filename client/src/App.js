@@ -5,6 +5,8 @@ import About from "./components/About";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Services from "./components/Services";
+import PrivateRoute from "./utils/PrivateRoute";
+import Welcome from "./components/Welcome";
 
 const App = () => {
   return (
@@ -14,6 +16,7 @@ const App = () => {
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
       <Route path="/services" component={Services} />
+      <PrivateRoute path="/welcome" component={Welcome} />
     </div>
   );
 };
