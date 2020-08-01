@@ -38,7 +38,8 @@ router.post("/login", validate.validateLogin, (req, res) => {
           .json({ 
             id: user.id, 
             token, 
-            message: `${user.username} logged in` 
+            message: `${user.username} logged in`,
+            user: `${user.username}`
           });
       } 
       else {

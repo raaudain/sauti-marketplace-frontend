@@ -142,12 +142,12 @@ table {
   font-weight: 600;
 }
 .header .links {
-  width: 30%;
+  width: 50%;
   display: flex;
-  justify-content: end;
   justify-content: space-between;
 }
-.header .links a {
+.header .links a,
+.header .links span {
   font-size: 1.4rem;
   color: #ffffff;
 }

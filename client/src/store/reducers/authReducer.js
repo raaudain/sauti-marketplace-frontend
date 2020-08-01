@@ -3,7 +3,7 @@ import { types } from "../actions";
 const initialState = {
   isLoading: false,
   isSuccess: false,
-  error: null
+  error: null,
 };
 
 export default (state = initialState, action) => {

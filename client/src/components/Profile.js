@@ -1,10 +1,10 @@
 import React from "react";
-import HeaderLoggedIn from "./HeaderLoggedIn";
+import Header from "./Header";
 
-const Welcome = () => {
+const Profile = () => {
   return (
     <>
-      <HeaderLoggedIn />
+      <Header />
       <div id="welcome">
         <h1>Login successful!!!</h1>
       </div>
@@ -12,4 +12,4 @@ const Welcome = () => {
   );
 };
 
-export default Welcome;
+export default Profile;

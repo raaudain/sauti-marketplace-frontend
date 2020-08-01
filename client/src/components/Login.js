@@ -22,13 +22,12 @@ const Login = props => {
   const handleSubmit = event => {
     event.preventDefault();
     props.logIn(credentials);
-    history.push("/welcome");
+    history.push("/profile");
   }
 
   return (
     <>
-      <Header />
-      
+      <Header username={credentials.username}/>
       <div className="signIn">
       <h2>Sign into Sauti</h2>
         <form onSubmit={handleSubmit}>

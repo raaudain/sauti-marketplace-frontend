@@ -6,9 +6,9 @@ export const logIn = credentials => dispatch => {
   return axiosWithAuth()
     .post("/auth/login", credentials)
     .then(res => {
-      console.log(res)
       // Sets token
       localStorage.setItem("token", res.data.token);
+      localStorage.setItem("user", res.data.user);
       dispatch({ type: types.LOGIN_SUCCESS, payload: res.data });
     })
     .catch(err => {
