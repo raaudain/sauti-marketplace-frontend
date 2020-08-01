@@ -4,7 +4,7 @@ const axiosWithAuth = () => {
   const token = localStorage.getItem("token");
 
   return axios.create({
-    baseURL: "http://localhost:6003/api",
+    baseURL: "https://sauti-marketplace-backend.herokuapp.com/api",
     headers: {
       "Content-Type": "application/json",
       Authorization: `${token}`,
