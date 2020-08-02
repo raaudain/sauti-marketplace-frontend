@@ -1,10 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const Header = props => {
+  const history = useHistory();
+
   const handleLogout = () => {
     localStorage.clear();
-    window.location.reload();
+    //window.location.reload();
+    history.push("/");
   }
 
   return (

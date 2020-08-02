@@ -9,10 +9,14 @@ export const logIn = credentials => dispatch => {
       // Sets token
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("user", res.data.user);
-      dispatch({ type: types.LOGIN_SUCCESS, payload: res.data });
+      dispatch({ 
+        type: types.LOGIN_SUCCESS, payload: res.data 
+      });
     })
     .catch(err => {
-      dispatch({ type: types.LOGIN_FAILURE, payload: err.response });
+      dispatch({ 
+        type: types.LOGIN_FAILURE, payload: { message: err.response }
+      });
       console.log(err.response);
     });
 };
