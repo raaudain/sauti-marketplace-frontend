@@ -1,12 +1,11 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
 
-const Header = props => {
+const Header = () => {
   const history = useHistory();
 
   const handleLogout = () => {
     localStorage.clear();
-    //window.location.reload();
     history.push("/");
   }
 
@@ -28,7 +27,7 @@ const Header = props => {
         <div className="links">
           <span>Hello, {localStorage.getItem("user")}</span>
           <Link to="/profile">Profile</Link>
-          <Link to="/" onClick={handleLogout}>Log Out</Link>
+          <Link onClick={handleLogout}>Log Out</Link>
           <Link to="/services">Services</Link>
           <Link to="/about">About</Link>
         </div>

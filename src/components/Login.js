@@ -61,7 +61,7 @@ const Login = props => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = () => {
   return {};
 };
 
