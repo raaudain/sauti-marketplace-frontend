@@ -7,7 +7,7 @@ const About = () => {
       <Header />
       <div id="about-lorem">
         <p>
-          This is a fictional site. 
+          This is a full stack application displaying form validation.
         </p>
         <p>
           Mauris dapibus ligula orci, vitae porttitor tellus elementum a. Mauris

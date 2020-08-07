@@ -4,7 +4,6 @@ import Header from "./Header";
 import { connect } from "react-redux";
 import { createAccount } from "../store/actions/createActions";
 
-
 const Register = props => {
   const [credentials, setCredentials] = useState({
     username: "",
@@ -139,8 +138,4 @@ const Register = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return {};
-};
-
-export default connect(mapStateToProps, { createAccount })(Register);
+export default connect(null, { createAccount })(Register);

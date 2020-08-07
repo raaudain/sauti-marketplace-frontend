@@ -1,16 +1,14 @@
 import React, { useState } from "react";
-import { useHistory, Redirect } from "react-router-dom"
-import Header from "./Header";
+import { Redirect } from "react-router-dom"
 import { connect } from "react-redux";
 import { logIn } from "../store/actions/authActions";
+import Header from "./Header";
 
 const Login = props => {
   const [credentials, setCredentials] = useState({
     username: "",
     password: ""
   });
-
-  const history = useHistory();
 
   const handleChange = event => {
     setCredentials({
@@ -32,7 +30,7 @@ const Login = props => {
         (<div className="signIn">
         <h2>Sign into Sauti</h2>
           <form onSubmit={handleSubmit}>
-            {props.isFailure ? (<div>Invalid credentials</div>) : null}
+            {props.isFailure ? (<div className="error">Invalid credentials</div>) : null}
             <div>
               <input 
                 className="username"

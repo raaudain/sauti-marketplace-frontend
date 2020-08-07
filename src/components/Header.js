@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { logOut } from "../store/actions/authActions"
 
 const Header = props => {
-
   const handleLogout = () => {
     props.logOut();
   }

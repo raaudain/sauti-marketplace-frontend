@@ -214,6 +214,11 @@ table {
 }
 #register .error {
   color: #ff0000;
+  border: 1px solid #ff0000;
+  border-bottom: none;
+  padding: 5px 5px 2px;
+  background-color: #FFC0CB;
+  border-radius: 5px 5px 0 0;
 }
 #register #email,
 #register #username,
@@ -271,6 +276,14 @@ table {
   letter-spacing: 1.5px;
   background-color: #ffffff;
   margin-bottom: 20px;
+}
+.signIn .error {
+  color: #ff0000;
+  border: 1px solid #ff0000;
+  border-bottom: none;
+  padding: 5px 5px 2px;
+  background-color: pink;
+  border-radius: 5px 5px 0 0;
 }
 .signIn button {
   margin-top: 10px;
