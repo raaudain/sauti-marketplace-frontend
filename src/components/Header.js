@@ -1,12 +1,12 @@
 import React from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { logOut } from "../store/actions/authActions"
 
-const Header = () => {
-  const history = useHistory();
+const Header = props => {
 
   const handleLogout = () => {
-    localStorage.clear();
-    history.push("/");
+    props.logOut();
   }
 
   return (
@@ -27,7 +27,7 @@ const Header = () => {
         <div className="links">
           <span>Hello, {localStorage.getItem("user")}</span>
           <Link to="/profile">Profile</Link>
-          <Link onClick={handleLogout}>Log Out</Link>
+          <Link to="/" onClick={handleLogout}>Log Out</Link>
           <Link to="/services">Services</Link>
           <Link to="/about">About</Link>
         </div>
@@ -37,4 +37,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default connect(null, { logOut })(Header);

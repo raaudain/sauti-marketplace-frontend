@@ -7,6 +7,8 @@ export const logIn = credentials => dispatch => {
     .post("/auth/login", credentials)
     .then(res => {
       // Sets token
+      console.log(res.data)
+      localStorage.setItem("userId", res.data.id);
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("user", res.data.user);
       dispatch({ 
@@ -19,4 +21,11 @@ export const logIn = credentials => dispatch => {
       });
       console.log(err.response);
     });
+};
+
+export const logOut = () => dispatch => {
+  dispatch({ type: types.LOGOUT_START });
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
+  window.location.reload();
 };
