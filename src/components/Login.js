@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Redirect } from "react-router-dom"
+import { Redirect, Link } from "react-router-dom"
 import { connect } from "react-redux";
 import { logIn } from "../store/actions/authActions";
 import Header from "./Header";
@@ -25,7 +25,7 @@ const Login = props => {
   return (
     <>
       <Header />
-      {console.log(props.isSuccess)}
+      {localStorage.getItem("token") ? (<Redirect to="/profile" />) : (<Link to="/login" />)}
       {!props.isSuccess ? 
         (<div className="signIn">
         <h2>Sign into Sauti</h2>
@@ -56,7 +56,7 @@ const Login = props => {
             <button>Sign In</button>
           </form>
           
-        </div> ) : (<Redirect to="/profile" />)
+        </div>) : (<Redirect to="/profile" />)
       }
     </>
   );
