@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { createAccount } from "../store/actions/createActions";
 import Header from "./Header";
@@ -10,8 +10,6 @@ const Register = props => {
     email: "",
     password: ""
   });
-
-  const history = useHistory();
 
   const handleChange = event => {
     event.preventDefault();
@@ -82,18 +80,19 @@ const Register = props => {
       event.preventDefault();
     }
     else {
+      event.preventDefault();
       props.createAccount(credentials);
-      history.push("/login");
     }
   };
 
   return (
     <>
       <Header />
-      <div id="register">
+      {!props.isSuccess ? (
+        <div id="register">
         <h2>Sign up for account</h2>
         <form onSubmit={handleSubmit}>
-
+          {props.isFailure && props.isFailure.message.data.message.includes("Users.username") ? (<div className="error">Username taken. Please choose another.</div>) : null}
           <div id="nameError"></div>
           <input
             id="username"
@@ -104,6 +103,7 @@ const Register = props => {
             placeholder="USERNAME"
           />
 
+          {props.isFailure && props.isFailure.message.data.message.includes("Users.email") ? (<div className="error">Email already in use</div>) : null}
           <div id="emailError"></div>
           <input
             id="email"
@@ -134,8 +134,16 @@ const Register = props => {
           <button>REGISTER</button>
         </form>
       </div>
+      ) : (<Redirect to="/login" />)}
     </>
   );
 };
 
-export default connect(null, { createAccount })(Register);
+const mapStateToProps = state => {
+  return {
+    isSuccess: state.createReducer.isSuccess,
+    isFailure: state.createReducer.error
+  }
+}
+
+export default connect(mapStateToProps, { createAccount })(Register);

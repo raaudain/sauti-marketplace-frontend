@@ -16,7 +16,7 @@ export default (state = initialState, action) => {
         isLoading: true,
         isAuth: false,
         isSuccess: false,
-        errors: null,
+        error: null,
         user: {}
       };
     case types.CREATE_ACCOUNT_SUCCESS:
@@ -25,7 +25,7 @@ export default (state = initialState, action) => {
         isLoading: false,
         isAuth: false,
         isSuccess: true,
-        errors: null,
+        error: null,
         user: {}
       };
     case types.CREATE_ACCOUNT_FAILURE:
@@ -34,7 +34,7 @@ export default (state = initialState, action) => {
         isLoading: false,
         isAuth: false,
         isSuccess: false,
-        errors: action.payload,
+        error: action.payload,
         user: {}
       };
     default:
