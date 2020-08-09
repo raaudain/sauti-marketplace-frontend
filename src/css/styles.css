@@ -1,0 +1,330 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 62.5%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.header {
+  height: 104px;
+  background-color: #1b1411;
+  display: flex;
+  padding: 32px 24px 18px 24px;
+  align-items: flex-end;
+}
+.header .logo {
+  width: 70%;
+}
+.header .logo h1 {
+  color: #f2e1d8;
+  font-size: 4.8rem;
+  font-weight: 600;
+}
+.header .links {
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+.header .links a,
+.header .links span {
+  font-size: 1.4rem;
+  color: #ffffff;
+}
+.landingPage {
+  background-image: url("../img/sauti_landing_photo.png");
+  background-color: #000000;
+  height: 920px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.landingPage .box {
+  color: #eee1cf;
+  top: 620px;
+  left: 25%;
+  position: absolute;
+  border-radius: 8px;
+  background-color: rgba(27, 20, 17, 0.8);
+  width: 776px;
+  height: 256px;
+  text-align: center;
+}
+.landingPage .box p:nth-child(1) {
+  font-size: 30px;
+  margin: 32px auto 0;
+  font-weight: bold;
+  width: 672px;
+  height: 69px;
+}
+.landingPage .box p:nth-child(2) {
+  font-size: 24px;
+  width: 552px;
+  height: 51px;
+  margin: 24px auto;
+}
+.landingPage .box div {
+  margin: auto;
+  width: 475px;
+  display: flex;
+  justify-content: space-between;
+}
+.landingPage .box div button {
+  background-color: #ffb300;
+  color: #ffffff;
+  font-size: 14px;
+  border-radius: 4px;
+  width: 208px;
+  height: 36px;
+  border: 0;
+  cursor: pointer;
+}
+#register {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin: 150px auto;
+}
+#register h2 {
+  color: #000000;
+  font-size: 3rem;
+  text-align: center;
+  font-weight: bolder;
+  margin-bottom: 40px;
+}
+#register .error {
+  color: #ff0000;
+  border: 1px solid #ff0000;
+  border-bottom: none;
+  padding: 5px 5px 2px;
+  background-color: #FFC0CB;
+  border-radius: 5px 5px 0 0;
+}
+#register #email,
+#register #username,
+#register #pass,
+#register #cpass {
+  width: 100%;
+  height: 30px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 2px solid #cfcfcf;
+  color: #999695;
+  font-size: 0.75rem;
+  padding: 6px 11px 6px 11px;
+  letter-spacing: 1.5px;
+  background-color: #ffffff;
+  margin-bottom: 20px;
+}
+#register button {
+  margin-top: 10px;
+  width: 100%;
+  background-color: #1b1411;
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 0.75rem;
+  text-align: center;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+}
+.signIn {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin: 150px auto;
+}
+.signIn h2 {
+  color: #000000;
+  font-size: 3rem;
+  text-align: center;
+  font-weight: bolder;
+  margin-bottom: 40px;
+}
+.signIn .username,
+.signIn .pass {
+  width: 100%;
+  height: 30px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 2px solid #cfcfcf;
+  color: #999695;
+  font-size: 0.75rem;
+  padding: 6px 11px 6px 11px;
+  letter-spacing: 1.5px;
+  background-color: #ffffff;
+  margin-bottom: 20px;
+}
+.signIn .error {
+  color: #ff0000;
+  border: 1px solid #ff0000;
+  border-bottom: none;
+  padding: 5px 5px 2px;
+  background-color: pink;
+  border-radius: 5px 5px 0 0;
+}
+.signIn button {
+  margin-top: 10px;
+  width: 100%;
+  background-color: #1b1411;
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 0.75rem;
+  text-align: center;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+}
+#service-lorem {
+  margin-top: 80px;
+}
+#service-lorem p {
+  font-size: 1.2rem;
+  margin-top: 20px;
+  padding: 0 250px;
+}
+#about-lorem {
+  margin-top: 80px;
+}
+#about-lorem p {
+  font-size: 1.2rem;
+  margin-top: 20px;
+  padding: 0 250px;
+}
+#welcome h1 {
+  margin-top: 150px;
+  font-size: 6rem;
+  text-align: center;
+  color: #DC143C;
+}
+html {
+  font-family: "Montserrat", sans-serif;
+}
+html a {
+  text-decoration: none;
+  color: currentColor;
+}
