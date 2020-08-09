@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { logOut } from "../store/actions/authActions";
 
 const Header = props => {
   const handleLogout = () => {
-    localStorage.clear();
-    window.location.reload();
+    props.logOut();
   }
 
   return (
@@ -35,4 +36,4 @@ const Header = props => {
   );
 };
 
-export default Header;
+export default connect(null, { logOut })(Header);

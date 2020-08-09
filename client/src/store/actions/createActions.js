@@ -7,14 +7,12 @@ export const createAccount = credentials => dispatch => {
     .post("/auth/register", credentials)
     .then(res => {
       dispatch({
-        type: types.CREATE_ACCOUNT_SUCCESS,
-        payload: { message: "Account created" }
+        type: types.CREATE_ACCOUNT_SUCCESS, payload: { message: "Account created" }
       });
     })
     .catch(err => {
       dispatch({ 
-        type: types.CREATE_ACCOUNT_FAILURE, 
-        payload: { message: err.response }
+        type: types.CREATE_ACCOUNT_FAILURE, payload: { message: err.response }
       });
       console.log(err.response);
     });

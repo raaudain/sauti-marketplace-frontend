@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
-import Header from "./Header";
+import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { createAccount } from "../store/actions/createActions";
-
+import Header from "./Header";
 
 const Register = props => {
   const [credentials, setCredentials] = useState({
@@ -11,8 +10,6 @@ const Register = props => {
     email: "",
     password: ""
   });
-
-  const history = useHistory();
 
   const handleChange = event => {
     event.preventDefault();
@@ -37,45 +34,45 @@ const Register = props => {
 
     // For username validation
     if (username.value.length < 4) {
-      nameError.innerHTML = "Username must be at least 6 characters";
+      nameError.innerHTML = "<div class='error'>Username must be at least 6 characters</div>";
       errors++;
     }
 
     if (username.value.length > 20) {
-      nameError.innerHTML = "Username cannot be over 20 characters";
+      nameError.innerHTML = "<div class='error'>Username cannot be over 20 characters</div>";
       errors++;
     }
 
     if (username.value.match(/[#/\/\\]/)) {
-      nameError.innerHTML = "Username must not contain hashtags, backslashes, or forward slashes";
+      nameError.innerHTML = "<div class='error'>Username must not contain hashtags, backslashes, or forward slashes</div>";
       errors++;
     }
 
     // For email validation
     if (!email.value.includes("@") || email.value.length === 0 || email.value === null) {
-      emailError.innerHTML = "Please enter valid email address";
+      emailError.innerHTML = "<div class='error'>Please enter valid email address</div>";
       errors++;
     }
 
     // For password validation
     if (password.value.length < 8) {
-      passError.innerHTML = "Password must be atleast 8 characters";
+      passError.innerHTML = "<div class='error'>Password must be atleast 8 characters</div>";
       errors++;
     }
 
     if (password.value.length > 25) {
-      passError.innerHTML = "Password cannot be over 25 characters";
+      passError.innerHTML = "<div class='error'>Password cannot be over 25 characters</div>";
       errors++;
     }
 
     if (!password.value.match(/[A-Z]/) || !password.value.match(/[a-z]/) || !password.value.match(/[0-9]/) || !password.value.match(/[!*&^%$@]/)) {
-      passError.innerHTML = "Password must have at least one usercase letter, one lowercase letter, one number, and one special character (!, *, &, ^, %, $, @)";
+      passError.innerHTML = "<div class='error'>Password must have at least one usercase letter, one lowercase letter, one number, and one special character (!, *, &, ^, %, $, @)</div>";
       errors++;
     }
 
     // For re-enter password validation
     if (password.value !== cPassword.value) {
-      cpassError.innerHTML = "Passwords must match";
+      cpassError.innerHTML = "<div class='error'>Passwords must match</div>";
       errors++;
     }
 
@@ -83,19 +80,20 @@ const Register = props => {
       event.preventDefault();
     }
     else {
+      event.preventDefault();
       props.createAccount(credentials);
-      history.push("/login");
     }
   };
 
   return (
     <>
       <Header />
-      <div id="register">
+      {!props.isSuccess ? (
+        <div id="register">
         <h2>Sign up for account</h2>
         <form onSubmit={handleSubmit}>
-
-          <div className="error" id="nameError"></div>
+          {props.isFailure && props.isFailure.message.data.message.includes("Users.username") ? (<div className="error">Username taken. Please choose another.</div>) : null}
+          <div id="nameError"></div>
           <input
             id="username"
             type="text"
@@ -105,7 +103,8 @@ const Register = props => {
             placeholder="USERNAME"
           />
 
-          <div className="error" id="emailError"></div>
+          {props.isFailure && props.isFailure.message.data.message.includes("Users.email") ? (<div className="error">Email already in use</div>) : null}
+          <div id="emailError"></div>
           <input
             id="email"
             type="text"
@@ -115,7 +114,7 @@ const Register = props => {
             placeholder="EMAIL"
           />
 
-          <div className="error" id="passError"></div>
+          <div id="passError"></div>
           <input
             id="pass"
             type="password"
@@ -125,7 +124,7 @@ const Register = props => {
             placeholder="PASSWORD"
           />
 
-          <div className="error" id="cpassError"></div>
+          <div id="cpassError"></div>
           <input
             id="cpass"
             type="password"
@@ -135,12 +134,16 @@ const Register = props => {
           <button>REGISTER</button>
         </form>
       </div>
+      ) : (<Redirect to="/login" />)}
     </>
   );
 };
 
 const mapStateToProps = state => {
-  return {};
-};
+  return {
+    isSuccess: state.createReducer.isSuccess,
+    isFailure: state.createReducer.error
+  }
+}
 
 export default connect(mapStateToProps, { createAccount })(Register);
