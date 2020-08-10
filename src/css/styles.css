@@ -161,9 +161,9 @@ table {
 }
 .landingPage .box {
   color: #eee1cf;
-  top: 620px;
-  left: 25%;
   position: absolute;
+  top: 50%;
+  left: 75px;
   border-radius: 8px;
   background-color: rgba(27, 20, 17, 0.8);
   width: 776px;
