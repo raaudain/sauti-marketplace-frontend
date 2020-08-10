@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { createAccount } from "../store/actions/createActions";
 import Header from "./Header";
+import Loading from "./Loading";
 
 const Register = props => {
   const [credentials, setCredentials] = useState({
@@ -131,7 +132,7 @@ const Register = props => {
             placeholder="RE-ENTER PASSWORD"
           />
 
-          <button>REGISTER</button>
+          {props.isLoading ? (<Loading />): (<button>REGISTER</button>)} 
         </form>
       </div>
       ) : (<Redirect to="/login" />)}
@@ -141,6 +142,7 @@ const Register = props => {
 
 const mapStateToProps = state => {
   return {
+    isLoading: state.createReducer.isLoading,
     isSuccess: state.createReducer.isSuccess,
     isFailure: state.createReducer.error
   }

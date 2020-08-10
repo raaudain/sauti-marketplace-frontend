@@ -25,7 +25,6 @@ const Login = props => {
 
   return (
     <>
-      {console.log(props.isLoading)}
       <Header /> 
       {localStorage.getItem("token") ? (<Redirect to="/profile" />) : (<Link to="/login" />)}
       {!props.isSuccess ? 
@@ -54,7 +53,7 @@ const Login = props => {
                 required
               />
             </div>
-            {!props.isLoading ? (<Loading />) : (<button>Sign In</button>)}
+            {props.isLoading ? (<Loading />) : (<button>Sign In</button>)}
           </form>
           
         </div>) : (<Redirect to="/profile" />)
