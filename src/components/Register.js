@@ -34,9 +34,12 @@ const Register = props => {
     let errors = 0;
 
     // For username validation
-    if (username.value.length < 4) {
+    if (username.value.length < 6) {
       nameError.innerHTML = "<div class='error'>Username must be at least 6 characters</div>";
       errors++;
+    }
+    else {
+      nameError.innerHTML = null;
     }
 
     if (username.value.length > 20) {
@@ -54,6 +57,9 @@ const Register = props => {
       emailError.innerHTML = "<div class='error'>Please enter valid email address</div>";
       errors++;
     }
+    else {
+      emailError.innerHTML = null;
+    }
 
     // For password validation
     if (password.value.length < 8) {
@@ -66,15 +72,21 @@ const Register = props => {
       errors++;
     }
 
-    if (!password.value.match(/[A-Z]/) || !password.value.match(/[a-z]/) || !password.value.match(/[0-9]/) || !password.value.match(/[!*&^%$@]/)) {
+    if (!password.value.match(/[A-Z]/) || !password.value.match(/[a-z]/) || !password.value.match(/[0-9]/) || !password.value.match(/[!*&^%$@]/) || password.value.match(/[#/\/\\]/)) {
       passError.innerHTML = "<div class='error'>Password must have at least one usercase letter, one lowercase letter, one number, and one special character (!, *, &, ^, %, $, @)</div>";
       errors++;
+    }
+    else {
+      passError.innerHTML = null
     }
 
     // For re-enter password validation
     if (password.value !== cPassword.value) {
       cpassError.innerHTML = "<div class='error'>Passwords must match</div>";
       errors++;
+    }
+    else {
+      cpassError.innerHTML = null;
     }
 
     if (errors > 0) {
